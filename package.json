@@ -16,5 +16,15 @@
   "bugs": {
     "url": "https://github.com/jackw2050/Eat-Da-Burger/issues"
   },
-  "homepage": "https://github.com/jackw2050/Eat-Da-Burger#readme"
+  "homepage": "https://github.com/jackw2050/Eat-Da-Burger#readme",
+  "devDependencies": {
+    "express": "^4.14.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.6",
+    "mysql": "^2.11.1"
+  }
 }
