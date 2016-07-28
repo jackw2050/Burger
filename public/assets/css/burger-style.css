@@ -1,0 +1,55 @@
+#fresh {
+  background: aqua;
+  margin: 5px;
+  padding: 5px;
+  height: 20px;
+  width: 40px;
+}
+
+.label {
+  font-weight: bold;
+}
+#message{
+	margin-left:30%;
+}
+.create-update-form {
+  background: aqua;
+  margin: 5px;
+  padding: 5px;
+}
+
+form {
+  margin-bottom: 5px;
+  background: aqua;
+  float:left;
+}
+
+h1{
+	text-align: center;
+	
+}
+body{
+	background-color: orange;
+}
+img{
+	align: middle;
+	margin-left: 40%
+}
+textarea{
+	align: middle;
+	margin-left: 30%
+}
+.freshBurger{
+	float:left;
+}
+.burgerEaten{
+	float: right;
+}
+input{
+	margin-left: 40%
+}
+
+.devourButton{
+	margin-left: 200px;
+	clear:all;
+}

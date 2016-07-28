@@ -7,12 +7,18 @@ var connection = require('./connection.js');
 function selectAll(){
 
 }
-function sinsertOne(){
 
-}
-function supdateOne(){
-	
-}
+
+
+
+// add sequelize here
+
+
+
+
+
+
+
 
 // VVVVVVVVVVV  REPLACE BELOW VVVVVVVVVV
 function printQuestionMarks(num) {
@@ -46,7 +52,14 @@ var orm = {
 			cb(result);
 		});
 	},
-		
+	
+
+ insertOne:function(){
+
+},
+ updateOne: function(){
+	
+},
 
 	selectWhere: function (tableInput, colToSearch, valOfCol) {
 		// SELECT * FROM  table WHERE table = ?

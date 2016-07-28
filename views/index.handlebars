@@ -1,25 +1,41 @@
-<h1>Burgers!</h1>
+<h1>Eat-da-Burger!</h1>
 
-<h2>Eat da Burger</h2>
 
-<ul>
+<img src="http://pngimg.com/upload/burger_sandwich_PNG4145.png" alt="Burger View" style="width:200px;height:150px; ">
+
+<form action="/create" method="POST">
+
+<textarea name="message" rows="4" cols="50">
+</textarea>
+<br>
+<input type="submit" value="Submit">
+<button type="submit">Add Burger</button>
+</form>
+<p id="message">Enter a burger you want to eat and click submit.</p>
+
+<div class="freshBurger">
+	<ul>
   {{#each burger}}
     {{#unless this.devoured}}
-      <li>
+      <div>
         {{this.burger_name}}
 
         <form action="burger/update/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="devoured" value="true">
-          <button type="submit">Devoured</button>
+          <input id="fresh" type="hidden" name="fresh" value="true">
+          <button class='devourButton' type="submit">Devour it!</button>
         </form>
 
-      
-      </li>
+     <div>
     {{/unless}}
   {{/each}}
 </ul>
+</div>
 
-<h2>Cats that are sleepy!</h2>
+
+
+<div class="burgerEaten">
+	
+
 
 <ul>
   {{#each burger}}
@@ -29,7 +45,7 @@
 
         <form action="burger/update/{{this.id}}?_method=PUT" method="POST">
           <input type="hidden" name="sleepy" value="false">
-          <button type="submit">WAKE UP!</button>
+
         </form>
 
        
@@ -37,20 +53,6 @@
     {{/if}}
   {{/each}}
 </ul>
+</div>
 
-<h2>Add a Cat</h2>
-<form class="create-update-form" action="cats/create" method="POST">
 
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
-
-  <div class="form-group">
-    <label for="slee">Devoured?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
