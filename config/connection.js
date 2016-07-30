@@ -26,15 +26,27 @@ module.exports = connection;
 
 */
 
+var config = "developmentConfig";
+//var config = "productionConfig";
 
 var mysql = require('mysql');
 
+if(config == "productionConfig"){
+var connection = mysql.createConnection({
+	host: "l3855uft9zao23e2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+	user: "hywizj7ucl968ik1",
+	password: "j7site5lqbowxc93",
+	database: "u8dury6cu2bl0s3n"
+});
+}
+else if(config == "developmentConfig"){
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
 	password: 'Koisuru2050',
 	database: 'burger_db'
 });
+}
 
 
 connection.connect(function (err) {

@@ -1,17 +1,22 @@
+<div class="container">
 <h1>Eat-da-Burger!</h1>
-
-
+<div class="row col-md-6">
 <img src="http://pngimg.com/upload/burger_sandwich_PNG4145.png" alt="Burger View" style="width:200px;height:150px; ">
+</div>
+</div>
+<div class="panel-body">
+    <form class="create-update-form" action="cats/create" method="POST">
+      <div class="form-group">
+          <label for="ca">Burger Name:</label>
+          <input type="text" id="ca" name="burger_name">
+      </div>
+      
+      <br>
+      <input type="submit" class="btn btn-primary devourButton" value="Send">
+    </form>
+  </div>
 
-<form action="/create" method="POST">
 
-<textarea name="message" rows="4" cols="50">
-</textarea>
-<br>
-<input type="submit" value="Submit">
-<button type="submit">Add Burger</button>
-</form>
-<p id="message">Enter a burger you want to eat and click submit.</p>
 
 <div class="freshBurger">
 	<ul>
@@ -20,7 +25,7 @@
       <div>
         {{this.burger_name}}
 
-        <form action="burger/update/{{this.id}}?_method=PUT" method="POST">
+        <form action="/update/{{this.id}}?_method=POST" method="POST">
           <input id="fresh" type="hidden" name="fresh" value="true">
           <button class='devourButton' type="submit">Devour it!</button>
         </form>
@@ -43,7 +48,7 @@
       <li>
         {{this.burger_name}}
 
-        <form action="burger/update/{{this.id}}?_method=PUT" method="POST">
+        <form action="/update/{{this.id}}?_method=POST" method="POST">
           <input type="hidden" name="sleepy" value="false">
 
         </form>
@@ -54,5 +59,3 @@
   {{/each}}
 </ul>
 </div>
-
-

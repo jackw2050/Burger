@@ -1,5 +1,5 @@
 #fresh {
-  background: aqua;
+  
   margin: 5px;
   padding: 5px;
   height: 20px;
@@ -10,7 +10,7 @@
   font-weight: bold;
 }
 #message{
-	margin-left:30%;
+	margin: auto;
 }
 .create-update-form {
   background: aqua;
@@ -20,8 +20,6 @@
 
 form {
   margin-bottom: 5px;
-  background: aqua;
-  float:left;
 }
 
 h1{
@@ -31,16 +29,17 @@ h1{
 body{
 	background-color: orange;
 }
-img{
+
+
+#div1{
 	align: middle;
-	margin-left: 40%
+	margin-left: 50%;
+	margin-right: 50%
 }
 textarea{
-	align: middle;
-	margin-left: 30%
+	margin: auto;
 }
 .freshBurger{
-	float:left;
 }
 .burgerEaten{
 	float: right;
@@ -50,6 +49,5 @@ input{
 }
 
 .devourButton{
-	margin-left: 200px;
-	clear:all;
+
 }

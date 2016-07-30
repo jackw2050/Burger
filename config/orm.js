@@ -1,80 +1,83 @@
 /*
-Here is the O.R.M. where you write functions that takes inputs and conditions and turn them into database commands like SQL.
-*/
+ Here is the O.R.M. where you write functions that takes inputs and conditions and turn them into database commands like SQL.
+ */
+var connection = require('../config/connection.js');
 
-var connection = require('./connection.js');
+function printQuestionMarks(num){
+    var arr = [];
 
-function selectAll(){
+    for (var i=0; i<num; i++){
+        arr.push('?')
+    }
 
+    return arr.toString();
 }
 
+function objToSql(ob){
+    //column1=value, column2=value2,...
+    var arr = [];
 
+    for (var key in ob) {
+        arr.push(key + '=' + ob[key]);
+    }
 
-
-// add sequelize here
-
-
-
-
-
-
-
-
-// VVVVVVVVVVV  REPLACE BELOW VVVVVVVVVV
-function printQuestionMarks(num) {
-	var arr = [];
-
-	for (var i = 0; i < num; i++) {
-		arr.push('?');
-	}
-
-	return arr.toString();
-}
-
-function objToSql(ob) {
-	// column1=value, column2=value2,...
-	var arr = [];
-
-	for (var key in ob) {
-		if (ob.hasOwnProperty(key)) {
-			arr.push(key + '=' + ob[key]);
-		}
-	}
-
-	return arr.toString();
+    return arr.toString();
 }
 
 var orm = {
-	all: function (tableInput, cb) {
-		var queryString = 'SELECT * FROM ' + tableInput + ';';
-		connection.query(queryString, function (err, result) {
-			if (err) throw err;
-			cb(result);
-		});
-	},
-	
+    all: function(tableInput, cb) {
+        var queryString = 'SELECT * FROM ' + tableInput + ';';
+        connection.query(queryString, function(err, result) {
+            if (err) throw err;
+            cb(result);
+        });
+    },
+    //vals is an array of values that we want to save to cols
+    //cols are the columns we want to insert the values into
+    create: function(table, cols, vals, cb) {
+        cols = cols + ",devoured";
+        console.log(cols);
+        var queryString = 'INSERT INTO ' + table;
 
- insertOne:function(){
+        queryString = queryString + ' (';
+        queryString = queryString + cols.toString();
+        queryString = queryString + ') ';
+        queryString = queryString + 'VALUES (';
+        queryString = queryString + printQuestionMarks(vals.length);
+        queryString = queryString + ') ';
 
-},
- updateOne: function(){
-	
-},
+        console.log(queryString)
 
-	selectWhere: function (tableInput, colToSearch, valOfCol) {
-		// SELECT * FROM  table WHERE table = ?
-		var queryString = 'SELECT * FROM ' + tableInput + ' WHERE ' + colToSearch + ' = ?';
-		connection.query(queryString, [valOfCol], function (err, result) {
-			console.log("SELECT * "  + "WHERE " + valOfCol + "=      " + result[0],[0]);
-		})
-	},
-		selectAndOrder: function (whatToSelect, table, orderCol, orderBy) {
-		var queryString = 'SELECT ' + whatToSelect + ' FROM ' + table + ' ORDER BY ' + orderCol + ' ' + orderBy;
-		console.log(queryString);
-		connection.query(queryString, function (err, result) {
-			console.log(result);
-		});
-	}
+        connection.query(queryString, vals, function(err, result) {
+            if (err) throw err;
+            cb(result);
+        });
+    },
+
+    update: function(table, objColVals, condition, cb) {
+        var queryString = 'UPDATE ' + table;
+
+        queryString = queryString + ' SET ';
+        queryString = queryString + objToSql(objColVals);
+        queryString = queryString + ' WHERE ';
+        queryString = queryString + condition;
+
+        console.log(queryString)
+        connection.query(queryString, function(err, result) {
+            if (err) throw err;
+            cb(result);
+        });
+    },
+    delete: function(table, condition, cb){
+        var queryString = 'DELETE FROM ' + table;
+        queryString = queryString + ' WHERE ';
+        queryString = queryString + condition;
+
+        connection.query(queryString, function(err, result) {
+            if (err) throw err;
+            cb(result);
+        });
+    }
 };
 
 module.exports = orm;

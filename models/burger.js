@@ -1,7 +1,7 @@
-var express = require('express');
+/*var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-
+*/
 //var orm = requre('orm.js');
 
 
@@ -14,13 +14,17 @@ var burger = {
 			cb(res);
 		});
 	},
-	//cols and vals are arrays
 	create: function(cols, vals, cb) {
+		console.log("create function in burger.js");
+		console.log("cols " + cols);
+		console.log("vals " + vals);
+		console.log("exiting burger.create ----> orm.create");
 		orm.create('burgers', cols, vals, function(res){
 			cb(res);
 		});
 	},
 	update: function(objColVals, condition, cb) {
+		console.log("update function");
 		orm.update('burgers', objColVals, condition, function(res){
 			cb(res);
 		});

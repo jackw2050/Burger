@@ -18,50 +18,14 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 //app.use(express.static('public'));
 
 app.use(express.static(process.cwd() + '/public'));
+//app.use('/static', express.static('public'));
 
 var routes = require('./config/controller.js');
 app.use('/', routes);
 
-
-
-router.get('/', function(req,res) {
-	res.redirect('/burger')
-});
-
-router.get('/burger', function(req,res) {
-	cat.all(function(data){
-		var hbsObject = {burgers : data}
-		console.log(hbsObject)
-		res.render('index', hbsObject);
-	});
-});
-
-/*
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'Koisuru2050',
-    database: 'burger_db'
-});
-*/
 app.listen(process.env.PORT || 8000, function() {
     console.log('App listening on PORT ' + PORT);
 });
-
-
-/*
-
-connection.connect(function(err) {
-    if (err) {
-        console.error('error connecting: ' + err.stack);
-        return;
-    }
-    console.log('connected to database as id ' + connection.threadId);
-});
-
-*/
-
 
 
 
