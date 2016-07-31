@@ -21,10 +21,11 @@ router.get('/burger', function(request, response) {
 });
 
 router.post('/burger/create', function(request, response) {
+    request.body.devoured = 0;
     console.log("router.post burger/create");
-    console.log("request body " + request.body.burgerName);
-    console.log("exiting controller ---> burger.create");
-    burger.create(['burgerName', 'devoured'], [request.body.burgerName, request.body.devoured], function(data) {
+    console.log("request body " + request.body.burger_name);
+    console.log("exiting controller ---> burger.create\n");
+    burger.create(['burger_name', 'devoured'], [request.body.burger_name, request.body.devoured], function(data) {
         response.redirect('/burger');
     });
 });

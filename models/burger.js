@@ -18,7 +18,7 @@ var burger = {
 		console.log("create function in burger.js");
 		console.log("cols " + cols);
 		console.log("vals " + vals);
-		console.log("exiting burger.create ----> orm.create");
+		console.log("exiting burger.create ----> orm.create\n");
 		orm.create('burgers', cols, vals, function(res){
 			cb(res);
 		});

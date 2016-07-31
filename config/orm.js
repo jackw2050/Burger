@@ -35,7 +35,7 @@ var orm = {
     //vals is an array of values that we want to save to cols
     //cols are the columns we want to insert the values into
     create: function(table, cols, vals, cb) {
-        cols = cols + ",devoured";
+     //   cols = cols + ",devoured";
         console.log(cols);
         var queryString = 'INSERT INTO ' + table;
 
