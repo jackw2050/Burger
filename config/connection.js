@@ -1,7 +1,7 @@
 
 
-var config = "developmentConfig";
-//var config = "productionConfig";
+//var config = "developmentConfig";
+var config = "productionConfig";
 
 var mysql = require('mysql');
 

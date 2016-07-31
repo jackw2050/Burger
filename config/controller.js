@@ -33,8 +33,8 @@ router.post('/burger/create', function(request, response) {
 // This takes input from the web page (the devour it button) and updates the database
 router.put('/burger/update/:id', function(request, response) {
     var condition = 'id = ' + request.params.id;
-console.log("router.put burger/update");
-   // console.log('condition', condition);
+    console.log("router.put burger/update");
+    console.log('condition', condition);
 
     burger.update({ 'devoured': request.body.devoured }, condition, function(data) {
         response.redirect('/burger');
