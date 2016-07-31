@@ -11,43 +11,14 @@
 }
 #message{
 	margin: auto;
-}
-.create-update-form {
-  background: aqua;
-  margin: 5px;
-  padding: 5px;
+.center_div{
+    margin: 0 auto;
+    width:80% /* value of your choice which suits your alignment */
 }
 
-form {
-  margin-bottom: 5px;
-}
-
-h1{
-	text-align: center;
-	
-}
 body{
 	background-color: orange;
 }
 
 
-#div1{
-	align: middle;
-	margin-left: 50%;
-	margin-right: 50%
-}
-textarea{
-	margin: auto;
-}
-.freshBurger{
-}
-.burgerEaten{
-	float: right;
-}
-input{
-	margin-left: 40%
-}
 
-.devourButton{
-
-}

@@ -1,34 +1,45 @@
 <div class="container">
-<h1>Eat-da-Burger!</h1>
-<div class="row col-md-6">
-<img src="http://pngimg.com/upload/burger_sandwich_PNG4145.png" alt="Burger View" style="width:200px;height:150px; ">
-</div>
-</div>
-<div class="panel-body">
-    <form class="create-update-form" action="cats/create" method="POST">
-      <div class="form-group">
-          <label for="ca">Burger Name:</label>
-          <input type="text" id="ca" name="burger_name">
-      </div>
-      
-      <br>
-      <input type="submit" class="btn btn-primary devourButton" value="Send">
-    </form>
+  <div >
+    <h1 class="text-center">Eat-da-Burger!</h1>
   </div>
 
+<div>
+  <img class="center-block" src="http://pngimg.com/upload/burger_sandwich_PNG4145.png" alt="Burger View" style="width:200px;height:150px; ">
+</div>
+
+<div class="form-group center_div">
+    <form action="burger/create" method="POST" class="navbar-form navbar-center create-update-form" > 
+    <div class="center_div">
+      <input type="textarea" class="form-control center-block " id="ca" name="burger_name" >
+    </div>     
+        
+        <button type="submit" class="devourButton btn btn-primary center-block">Add Burger</button>
+    </form>
+</div>
+
+</div>
 
 
-<div class="freshBurger">
+
+
+
+
+
+
+<div class="col-md-2"></div>
+<div class="freshBurger col-md-4">
 	<ul>
   {{#each burger}}
     {{#unless this.devoured}}
       <div>
-        {{this.burger_name}}
 
-        <form action="/update/{{this.id}}?_method=POST" method="POST">
-          <input id="fresh" type="hidden" name="fresh" value="true">
-          <button class='devourButton' type="submit">Devour it!</button>
-        </form>
+
+        <form action="/update/{{this.id}}?_method=POST" method="POST" class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input type="text" class="form-control" name="fresh" value={{this.burger_name}}>
+  </div>
+  <button type="submit" class="devourButton btn btn-danger">Devour it!</button>
+</form>
 
      <div>
     {{/unless}}
@@ -38,7 +49,7 @@
 
 
 
-<div class="burgerEaten">
+<div class="burgerEaten col-md-6">
 	
 
 
@@ -50,7 +61,6 @@
 
         <form action="/update/{{this.id}}?_method=POST" method="POST">
           <input type="hidden" name="sleepy" value="false">
-
         </form>
 
        

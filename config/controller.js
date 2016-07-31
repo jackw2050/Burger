@@ -16,7 +16,7 @@ router.get('/burger', function(request, response) {
     burger.all(function(data) {
         var hbsObject = { burger: data }
         console.log(hbsObject)
-        res.render('index', hbsObject);
+        response.render('index', hbsObject);
     });
 });
 
@@ -39,16 +39,6 @@ console.log("router.put burger/update");
         response.redirect('/burger');
     });
 });
-
-/*
-router.post('/cats/create', function(req,res) {
-    cat.create(['name', 'sleepy'], [req.body.name, req.body.sleepy], function(data){
-        res.redirect('/cats')
-    });
-});
-
-*/
-
 
 
 module.exports = router;
