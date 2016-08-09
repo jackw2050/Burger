@@ -1,11 +1,7 @@
-/*var express = require('express');
-var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
+/*
+Here is where you setup a model for how to interface with the database.
 */
-//var orm = requre('orm.js');
 
-
-//create orm functions here
 var orm = require('../config/orm.js');
 
 var burger = {
@@ -14,17 +10,13 @@ var burger = {
 			cb(res);
 		});
 	},
+	//cols and vals are arrays
 	create: function(cols, vals, cb) {
-		console.log("create function in burger.js");
-		console.log("cols " + cols);
-		console.log("vals " + vals);
-		console.log("exiting burger.create ----> orm.create\n");
 		orm.create('burgers', cols, vals, function(res){
 			cb(res);
 		});
 	},
 	update: function(objColVals, condition, cb) {
-		console.log("update function");
 		orm.update('burgers', objColVals, condition, function(res){
 			cb(res);
 		});
